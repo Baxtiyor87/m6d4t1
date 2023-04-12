@@ -2,6 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:m6d4t1/pages/signin_page.dart';
 
+import 'home_page.dart';
+
 
 
 
@@ -19,7 +21,20 @@ class _SignupPageState extends State<SignUpPage> {
   bool _showPassword = false;
 
   TextEditingController nameController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController phoneController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+
+  _doLogin(){
+    String name = nameController.text;
+    String email = emailController.text;
+    String phone = phoneController.text;
+    String password = passwordController.text;
+
+    if(name.isNotEmpty && email.isNotEmpty && phone.isNotEmpty && password.isNotEmpty){
+      Navigator.pushReplacementNamed(context, HomePage.id);
+    }
+  }
 
 
   @override
@@ -45,7 +60,7 @@ class _SignupPageState extends State<SignUpPage> {
 
 
             const SizedBox(height: 60,),
-            //Email
+            //Name
             TextFormField(
               controller: nameController,
               cursorColor: Colors.blue,
@@ -66,7 +81,7 @@ class _SignupPageState extends State<SignUpPage> {
 
             //Email
             TextFormField(
-              controller: nameController,
+              controller: emailController,
               cursorColor: Colors.blue,
               style: const TextStyle(fontSize: 20,color: Colors.blue,fontWeight: FontWeight.bold),
               decoration:  const InputDecoration(
@@ -83,9 +98,9 @@ class _SignupPageState extends State<SignUpPage> {
             ),
             const SizedBox(height: 20),
 
-            //Email
+            //Phone
             TextFormField(
-              controller: nameController,
+              controller: phoneController,
               cursorColor: Colors.blue,
               style: const TextStyle(fontSize: 20,color: Colors.blue,fontWeight: FontWeight.bold),
               decoration:  const InputDecoration(
@@ -153,7 +168,7 @@ class _SignupPageState extends State<SignUpPage> {
                   ),
                   child:ElevatedButton(
                       onPressed: () {
-
+                        _doLogin();
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.transparent,

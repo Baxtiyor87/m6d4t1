@@ -2,6 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:m6d4t1/pages/signup_page.dart';
 
+import 'home_page.dart';
+
 
 
 class SignInPage extends StatefulWidget {
@@ -19,6 +21,15 @@ class _SigninPageState extends State<SignInPage> {
 
   TextEditingController nameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+
+  _doLogin(){
+    String name = nameController.text;
+    String password = passwordController.text;
+
+    if(name.isNotEmpty && password.isNotEmpty){
+      Navigator.pushReplacementNamed(context, HomePage.id);
+    }
+  }
 
 
   @override
@@ -143,7 +154,7 @@ class _SigninPageState extends State<SignInPage> {
                 ),
                 child:ElevatedButton(
                     onPressed: () {
-
+                      _doLogin();
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.transparent,

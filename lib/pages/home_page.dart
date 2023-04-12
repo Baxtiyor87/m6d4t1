@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:m6d4t1/pages/splash_page.dart';
+
 class HomePage extends StatefulWidget {
   static String id= 'home_page';
   const HomePage({Key? key}) : super(key: key);
@@ -24,7 +26,7 @@ class _HomePageState extends State<HomePage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children:  [
                   IconButton(onPressed: (){
-                    // Navigator.pushReplacementNamed(context, SignInPage.id);
+                    Navigator.pushReplacementNamed(context, SplashPage.id);
                   }, icon: const Icon(Icons.arrow_back, size: 50,))
                 ])
         )
